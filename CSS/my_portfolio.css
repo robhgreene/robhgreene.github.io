@@ -1,0 +1,375 @@
+/***** GENERAL STYLING *****/
+/* Body */
+body {
+    /* ensures site displays all the way to the edge of the browser screen */
+    margin: 0%  
+}
+
+/* Heading 1 elements */
+h1 {
+    /* Capitalizing all h1 headings */
+    /*text-transform: uppercase;*/ 
+    /* Sets the font family of all h1 headings */ 
+    font-family: sans-serif;
+     /* Centering all h1 elements */
+    text-align: center;
+    /* Adds a small margin above h1 elements */
+    margin-top: 3%; 
+    color: #1a1a1a; 
+}
+
+/* Heading 1 element hover effect */
+h1:hover {
+    /* gray filter to the h1 headings when hovered over */
+    filter: grayscale(5%);
+     /* h1 elements are hovered over they increase in size by 1.1 */ 
+    transform: scale(1.1);
+    /* transformation to last 1 second */
+    transition: transform 1s; 
+}
+
+/* Styling for portfolio title text */
+.white-text {
+    /* color of the portfolio title text */
+    color: #fff; 
+}
+
+/* Paragraph elements */
+p {
+    font-family:"cursive";
+    /* Justify text within paragraph elements */
+    text-align: justify;
+    /* expands the text slightly */ 
+    letter-spacing: 1px; 
+    font-size: 20px;
+    /* adds padding to the left of the paragraph element */
+    padding-left: 20px;
+    /* adds padding to the right of the paragraph element */ 
+    padding-right: 20px;
+}
+
+/* Paragraph element hover effect */
+p:hover {
+    /* makes the transform effect last 1 second */
+    transition: transform 1s;
+    /* increase slightly in size when hovered over */
+	transform: scale(1.01); 
+}
+
+/* Center class - this applies to all elements with the class "center" */
+.center {
+    text-align: center; /* This center aligns the text */
+}
+
+/* Center class hover effect - This only affects the quote, github link, and footer */
+.center:hover {
+    /* makes the transform effect last 2 seconds */
+    transition: transform 2s;
+    /* elements with class "center" increase in size by 1.1 when hovered over */ 
+    transform: scale(1.1); 
+}
+
+/* Anchor elements */
+a {
+    color: #fa8406; /* This ensures all links are blue */
+}
+
+/* Quotation elements */
+q {
+    font-style: italic; /* This makes the quote italicized */
+}
+
+/* Image elements */
+img {
+    /* rids pictures of 75% color */
+    filter: grayscale(75%);
+    /* all images will have slightly rounded corners */ 
+    border-radius: 8px;
+    /* ensures all images stay within the width of their container */ 
+    max-width: 100%;
+    /* height for all images */
+    height: 340px;
+    /* By specifying block display we can ensure our images are able to be centered */ 
+    display: block;
+    /* In combination with "margin-right: auto" this centers all images */ 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+/* Image element hover effects */
+img:hover {
+	filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
+    transition: transform 1s; /* Transition lasts 1 second */
+	transform: scale(1.1); /* Image is increased slightly when hovered over */
+}
+
+/* The @media rule is used in media queries to apply different styles for different media/types of devices */
+/* On screens 576px and smaller the images will be 100px tall and centered vertically in the column */
+@media screen and (max-width: 576px) {
+    img {
+        height: 100px;
+        margin-top: 150px;
+    }
+}
+
+/* Styling for footer element */
+footer {
+    padding: 2%; /* This gives the footer padding that is equal to 2% of the width of the element's area */
+    background-color: white;
+}
+/***** END OF GENERAL STYLING *****/
+
+/***** NAVBAR STYLING *****/
+.Navbar {
+    /* ensures that any content that overflows beyond the boundary of our nav bar is not displayed */
+    overflow: hidden;
+    /* colors the navbar black */ 
+    background-color: black; 
+    /* keeps the navbar at the top of the screen as we scroll */
+    position: fixed; 
+    /* no space is displayed above the navbar */
+    top: 0; 
+    /* navbar span the entire width of the page */
+    width: 100%;
+    /* other elements don't display over the navbar */ 
+    z-index: 1; 
+    /* applies the moveNav animation below for Safari 4.0 - 8.0 */
+    -webkit-animation: moveNav 5s; 
+    /* applies the moveNav animation for all other browsers */
+    animation: moveNav 5s; 
+}
+
+/* moveNav animation effect for moving the nav bar in from the left of the screen */
+@keyframes moveNav {
+    /* navbar starts off screen to the left */
+    from {left: -100vw;}
+    /* moves the navbar into place */ 
+    to {left: 0vw;} 
+}
+
+/* Navbar links */
+.Navbar a {
+    /* specifies that the text floats on the left on the navbar */
+    float: left;
+    /* other text will be displayed on the same line or row, instead of a new line */ 
+    display: block;
+    /* font color for text on our navbar */ 
+    color: white;
+    /* adds padding around our text */ 
+    padding: 14px 16px;
+    /* gets rid of the underlines under the text on our navbar */ 
+    text-decoration: none; 
+    /* specifies the font family for text on our navbar */
+    font-family: Avant Garde, Helvetica; 
+    /* specifies the font size for text on our navbar */
+    font-size: 20px;
+    /* centers the text within its container */ 
+    text-align: center;
+    /* sets the text relative to its normal positioning, allowing us to use the animation below */ 
+    position: relative; 
+    /* Animation for Safari 4.0 - 8.0 */
+    -webkit-animation: moveNavText 5.75s; 
+    /* applies the moveNavText animation for 5.75s */ 
+    animation: moveNavText 5.75s; 
+}
+
+/* moveNavText animation effect for moving the navbar text from above the view to the navbar */
+@keyframes moveNavText {
+    from {top: -100vw;} /* This sets the navbar text 100% above the viewport */
+    to {top: 0vw;} /* This lowers the navbar text onto the navbar */
+}
+
+/* Screens 576px and smaller will display navbar links equally distributed */
+@media screen and (max-width: 576px) {
+    .Navbar a{
+        width: 25%; /* This makes each link take up 1/4 of the navbar */
+        font-size: 12px;
+    }
+}
+
+/* Navbar hover effects */
+.Navbar a:hover {
+    /* background color that will display for the hover link */
+    background-color: #f4f4f4; 
+    /* font color that will display when navbar a elements are hovered over */
+    color: black;
+    /* text on the navbar bold when hovered over */ 
+    font-weight: bold; 
+}
+
+/* Navbar home button */
+.Navbar a.active { /* This targets the a element on the navbar with the "active" class */
+    background-color: darkgray;
+}
+/***** END OF NAVBAR STYLING *****/
+
+/***** VIDEO STYLING *****/
+/* Formatting for background video */
+#Typing_Video {
+    /* fixes the video to the page */
+    position: fixed;
+    /* no space between the edge of the video and the edge of the page */ 
+    right: 0;
+    /* no space between the bottom of the video and the bottom of the page */ 
+    bottom: 0; 
+    /* the video is displayed across the full width of the page */
+    min-width: 100%;
+    /* places the video behind the other elements on the page */
+    z-index: -1; 
+}
+
+/* Screens that are 576px and smaller will not display the background video */
+@media screen and (max-width: 576px) {
+    #Typing_Video {
+        display: none;
+    }
+}
+
+/* Texts over the video */
+.Video_Text {
+    /* semi-transparent background for the text to sit over */
+    background: rgba(0, 0, 0, 0.5); 
+    /* font color white */
+    color: white;
+    /* the video-text container fills the width of the video */ 
+    width: 100%;
+    /* padding around the video-text container so the background goes slightly beyond the text */ 
+    padding: 20px;
+    /* sets the text relative to its normal positioning to use the animation below */ 
+    position: relative; 
+    -webkit-animation: moveVideoText 5.75s;
+    animation: moveVideoText 5.75s;
+}
+
+/* This animation effect causes the overlay video text to move up from the bottom of the page upon page load */
+@keyframes moveVideoText {
+    from {top: -100vw;} /* This sets the position of the video text to above the viewport */
+    to {top: 0vw;} /* This moves the video text to the normal positioning on the viewport */
+}
+/***** END OF VIDEO STYLING *****/
+
+/***** TABLE STYLING -  this section covers the styling of the columns and rows within the table *****/
+* { /* The asterisk is a universal selector that applies this effect to all elements on the page */
+    box-sizing: border-box; /* creates a box with a border within which we will place most of our text */
+} 
+
+.Column_1 {
+    float: left;
+    /* column will take up half of the page width */
+    width: 50%; 
+    padding: 10px;
+    /* ensures there is space between the top of the column and our headings */
+    padding-top: 3%;
+    /*  sets the height of the column to 400px, will need to be adjusted depending on the amount of text */ 
+    height: 400px;
+    /* background color of the columns with class Column_1 */ 
+    background-color: #82c9fc; 
+}
+
+/* Screens 576px and smaller will display a scroll bar if the text overflows the column height */
+@media screen and (max-width: 576px) {
+    .Column_1 {
+        overflow: auto;
+    }
+}
+
+.Column_2 {
+    float: left;
+    /* column will take up half of the page width */
+    width: 50%;
+    padding: 10px;
+    /* ensures there is space between the top of the column and our headings */
+    padding-top: 1.9%;
+    /*  sets the height of the column to 400px, will need to be adjusted depending on the amount of text */ 
+    height: 400px;
+    /* background color of the columns with class Column_2 */ 
+    background-color: #f6a651;
+}
+
+/* This class is applied to the columns in the final row, overriding the height and padding to provide more room for the contact form  while keeping the rest of the formatting from Column_1 or Column_2 */
+.Column_tall {
+    padding-top: 3.5%;
+    height: 450px;
+}
+
+/* This inserts something after the content of selected elements (in this case the elements with class "Row") */
+.Row:after {
+	content: ""; /* By leaving this blank, we are allowing the footer (covered lower down) to be displayed - removing it makes the footer overwrite a column */
+	display: table; /* The display property specifies the type of display behavior; the table value tells the browser to treat the element as a table */
+	clear: both; /* This clears any other elements from floating on the left or the right of an element */
+}
+/***** END OF TABLE STYLING *****/
+
+/***** CONTACT FORM STYLING *****/
+/* input[type=text] targets all text input sections of the contact form */
+input[type=text] {
+    /* each input box covers the full width of the container */
+    width: 100%;
+    /* Adds padding within the text box */ 
+    padding: 12px;
+    /* solid border and its color */ 
+    border: 1px solid #ccc;
+    /* rounds the corners of the text box border */ 
+    border-radius: 4px;
+    /* creates a box with a border around the contact form input boxes */ 
+    box-sizing: border-box; 
+    /* adds a margin to the top of the text box */
+    margin-top: 6px;
+    /* adds a margin to the bottom of the text box */ 
+    margin-bottom: 16px;
+    /* allows the user to resize the text boxes vertically */ 
+    resize: vertical; 
+    font-family: Perpetua, Rockwell Extra Bold;
+}
+
+/* Hover effects for input boxes */
+input[type=text]:hover {
+    box-shadow: 0 0 5px #00004d inset; /* This creates a blue shadow in the text box when hovered over by the user */
+}
+
+/* Submit button */
+input[type=submit] {
+    /* background color of the submit button to blue */
+    background-color: #82c9fc; 
+    /* sets the font color of the Submit button to black */
+    color: black;
+    /* font of the submit button bold */ 
+    font-weight: bold;
+    /* adds padding to the submit button */ 
+    padding: 12px 20px;
+    /* removes the border from the submit button */ 
+    border: none;
+    /* gives the submit button the same rounded corners as the text boxes */ 
+    border-radius: 4px;
+    /* changes the cursor to pointer when over the submit button */ 
+    cursor: pointer;
+    /* submit button to be centered */ 
+    display: block;
+    /* in combination with "margin-right: auto" this will center the submit button */ 
+    margin-left: auto; 
+    margin-right: auto;
+    font-family: Perpetua, Rockwell Extra Bold;
+}
+
+/* Hover effect for submit button */
+input[type=submit]:hover {
+    /* turns the background of the submit button white when the user hovers over it */
+    background-color: #f6a651; 
+    /* turns the font black when hovered over */
+    color: black; 
+    /* the button increase 1.5 times in size */
+    transform: scale(1.5); 
+    /* the transform effect last 1.5 seconds */
+    transition: transform 1.5s; 
+}
+
+/* Form element */
+form {
+    /* rounds the corners of the contact form */
+    border-radius: 10px; 
+    background-color: #f2f2f2; 
+    /* adds padding to the contact form */
+    padding: 10px; 
+    font-family: "Trebuchet MS", Optima;
+}
+/***** END OF CONTACT FORM STYLING *****/
