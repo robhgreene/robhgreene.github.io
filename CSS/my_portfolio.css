@@ -1,8 +1,25 @@
 /***** GENERAL STYLING *****/
+
+
+html {
+    /* the background color will be black until the elements fade in */
+    background-color: black;
+    /* page will scroll smoothly when the hyperlinks are clicked */
+    scroll-behavior: smooth;
+}
 /* Body */
 body {
     /* ensures site displays all the way to the edge of the browser screen */
-    margin: 0%  
+    margin: 0%;
+    /* adds the fade-in effect for all elements 
+    these is an in-line script tag for the functionality */
+    opacity: 1;
+    transition: 1s opacity;  
+}
+/*fade-out effect */
+body.fade-out {
+    opacity: 0;
+    transition:cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 /* Heading 1 elements */
@@ -14,8 +31,8 @@ h1 {
      /* Centering all h1 elements */
     text-align: center;
     /* Adds a small margin above h1 elements */
-    margin-top: 3%; 
-    color: #1a1a1a; 
+    margin-top: 1%; 
+    color: #1a1a1a;
 }
 
 /* Heading 1 element hover effect */
@@ -40,8 +57,9 @@ p {
     /* Justify text within paragraph elements */
     text-align: justify;
     /* expands the text slightly */ 
-    letter-spacing: 1px; 
-    font-size: 20px;
+    letter-spacing: 1px;
+    /* added the vw sizing to the paragraph text*/ 
+    font-size: 1.5vw;
     /* adds padding to the left of the paragraph element */
     padding-left: 20px;
     /* adds padding to the right of the paragraph element */ 
@@ -94,6 +112,20 @@ img {
     /* In combination with "margin-right: auto" this centers all images */ 
     margin-left: auto; 
     margin-right: auto;
+    /* zoom in and out feature for the images */
+    animation: zoomInOut 15s forwards;
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(1.2,1.2);
+    }
+    100% {
+        transform: scale(1,1);
+    }
 }
 
 /* Image element hover effects */
@@ -315,8 +347,11 @@ input[type=text] {
     box-sizing: border-box; 
     /* adds a margin to the top of the text box */
     margin-top: 6px;
-    /* adds a margin to the bottom of the text box */ 
-    margin-bottom: 16px;
+
+    /* adds a margin to the bottom of the text box 
+    removed to allow sizing for phone number field*/ 
+    /* margin-bottom: 16px; */
+
     /* allows the user to resize the text boxes vertically */ 
     resize: vertical; 
     font-family: Perpetua, Rockwell Extra Bold;
@@ -348,6 +383,8 @@ input[type=submit] {
     /* in combination with "margin-right: auto" this will center the submit button */ 
     margin-left: auto; 
     margin-right: auto;
+    /* added a margin to the top to give some space between the button and last field */
+    margin-top: 8px;
     font-family: Perpetua, Rockwell Extra Bold;
 }
 

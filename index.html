@@ -5,9 +5,26 @@
         <meta name="viewport" content="width=device-width" />
         <title>Robert Greene Portfolio</title>
         <link rel="stylesheet" type="text/css" href="./CSS/my_portfolio.css">
+        <!-- this is for the input validation for the form -->
+        <script>
+            function validateForm() {
+              let x = document.forms["ContactForm"]["Name","Email","Phone Number", "Message"].value;
+              if (x == "") {
+                alert("All fields must be filled out.");
+                return false;
+              }
+            }
+        </script>
     </head>
 
     <body class="Backgroud">
+        <!-- this is the fade effect. JS is in-line to prevent any flickering when the page loads -->
+        <script>
+            document.body.classList.add('fade-out');
+            window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.remove('fade-out');
+            });
+        </script>
 
         <!--Navbar-->
         <div class="Navbar">
@@ -105,11 +122,13 @@
             <div class="Column_1 Column_tall">
                 <h1>Contact</h1>
                 <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form action="" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
+                <form name="ContactForm" action="" onsubmit="return validateForm()" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
                     <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
+                        <input type="text" id="Name" name="Name" placeholder="Please enter your name here">
                     <label>Email:</label>
                         <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
+                    <label>Phone Number:</label>
+                        <input type="text" id="PhoneNumber" name="Phone Number" placeholder="Please enter your phone number">
                     <label>Message:</label>
                         <input type="text" id="Message" name="Message" placeholder="Please write your message here">
                         <input type="submit" value="SUBMIT">
