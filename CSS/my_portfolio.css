@@ -12,7 +12,7 @@ body {
     /* ensures site displays all the way to the edge of the browser screen */
     margin: 0%;
     /* adds the fade-in effect for all elements 
-    these is an in-line script tag for the functionality */
+    there is a JS script for functionality */
     opacity: 1;
     transition: 1s opacity;  
 }
@@ -188,13 +188,13 @@ footer {
     /* font color for text on our navbar */ 
     color: white;
     /* adds padding around our text */ 
-    padding: 14px 16px;
+    padding: .75vw 1vw;
     /* gets rid of the underlines under the text on our navbar */ 
     text-decoration: none; 
     /* specifies the font family for text on our navbar */
     font-family: Avant Garde, Helvetica; 
     /* specifies the font size for text on our navbar */
-    font-size: 20px;
+    font-size: 1.5vw;
     /* centers the text within its container */ 
     text-align: center;
     /* sets the text relative to its normal positioning, allowing us to use the animation below */ 
@@ -265,8 +265,10 @@ footer {
     color: white;
     /* the video-text container fills the width of the video */ 
     width: 100%;
-    /* padding around the video-text container so the background goes slightly beyond the text */ 
-    padding: 20px;
+    /* video-text container fills the height of the viewport so that the slideshow is not partially displayed */
+    height: 100vh; 
+    /* padding around the video-text container so the background goes slightly beyond the text */
+    padding-top: 2vh;
     /* sets the text relative to its normal positioning to use the animation below */ 
     position: relative; 
     -webkit-animation: moveVideoText 5.75s;
