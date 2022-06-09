@@ -1,4 +1,3 @@
-'use strict';
 //  open the contact form
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -47,12 +46,81 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active"; 
 }
 
+// checks input validation for phone number
+// uses a RegEx to search 
+function validatePhoneNum(inputTxt) {
+    var phoneNo = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if(inputTxt.value.match(phoneNo)){
+        return true;
+    } else {
+        alert("Phone number should be XXX-XXX-XXXX");
+        return false;
+    }
+}
+
+// checks input validation for only letters in name
+// uses a RegEx to check for only upper and lower case characters
+// will allow for either a first name or a first and last name.
+function validateName(inputTxt) {
+    var letters = /^[A-Za-z]+\s?[A-Za-z]+?$/;
+    if (inputTxt.value.match(letters)) {
+        return true;
+    } else {
+        alert("Please enter only letters for the name.");
+        return false;
+    }
+}
+
+// checks input validation for correct email format
+// uses RegEx to to check for all valid characters followed by @ and than a valid subdomain and domain
+function validateEmail(emailInput) {
+    var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailInput.value.match(emailFormat)) {
+        return true;
+    } else {
+        alert("Please enter a valid email address.")
+        return false;
+    }
+}
+
+// checks input validation for message
+// uses RegEx to search for common characters in cross-site scripting attacks
+function validateMessage(messageInput) {
+    var xxsChars = /^[^#%^&<>[\]+={}]+$/;
+    if (messageInput.value.match(xxsChars)) {
+        return true;
+    } else {
+        alert("You trying to do an XXS attack?")
+        return false;
+    }
+}
+
 // checks input validation for the from. Will not Submit a form with any empty fields
 function validateForm() {
     let x = document.forms["ContactForm"]["Name","Email","Phone Number", "Message"].value;
     if (x == "") {
       alert("All fields must be filled out.");
       return false;
+    }
+    if (validatePhoneNum(document.forms["ContactForm"]["Phone Number"])) {
+
+    } else {
+        return false;
+    }
+    if (validateName(document.forms["ContactForm"]["Name"])) {
+
+    } else {
+        return false;
+    }
+    if (validateEmail(document.forms["ContactForm"]["Email"])) {
+
+    } else {
+        return false;
+    }
+    if (validateMessage(document.forms["ContactForm"]["Message"])) {
+        
+    } else {
+        return false;
     }
 }
 
