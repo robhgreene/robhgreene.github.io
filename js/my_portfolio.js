@@ -1,3 +1,4 @@
+'use strict';
 //  open the contact form
 function openForm() {
     document.getElementById("myForm").style.display = "block";
