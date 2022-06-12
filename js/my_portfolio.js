@@ -90,7 +90,7 @@ function validateMessage(messageInput) {
     if (messageInput.value.match(xxsChars)) {
         return true;
     } else {
-        alert("You trying to do an XXS attack?")
+        alert("You trying to do an XSS attack?")
         return false;
     }
 }
